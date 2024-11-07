@@ -128,9 +128,7 @@
     <nav>
         <ul>
             <li><a href="#features">Features</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#subscribe">Subscribe</a></li>
-            <li><a href="#feedback">Feedback</a></li>
         </ul>
     </nav>
     <main>
@@ -161,30 +159,21 @@
                 </div>
             </div>
         </section>
-        <section id="how-it-works">
-            <h2>How It Works</h2>
-            <p>Connect the smart cookware to the app, schedule your meals, and let the system do the rest. The app guides you step-by-step to create delicious and balanced meals with ease.</p>
-            <img src="how-it-works.jpg" alt="Illustration of smart cookware and app interaction" style="width:100%;max-width:600px;">
-        </section>
         <section id="subscribe">
             <h2>Subscribe for Updates</h2>
             <form action="#">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                <button onclick="sendEmailTo()">Subscribe</button>
-            </form>
-        </section>
-        <section id="feedback">
-            <h2>Share Your Thoughts</h2>
-            <form action="#">
-                <label for="favorite-feature">What feature excites you the most?</label>
-                <input type="text" id="favorite-feature" name="favorite-feature">
-                <label for="interest">Are you more interested in the cookware or the app?</label>
-                <select id="interest" name="interest">
-                    <option value="cookware">Cookware</option>
-                    <option value="app">App</option>
+                <label for="interest" style="font-size: min(2.2vh, 2.2vw);">What product are you more interested in?</label>
+                <select id="interest" name="interest" style="font-size: min(2.2vh, 2.2vw);">
+                    <option value="Cookware">Cookware</option>
+                    <option value="App">App</option>
+                    <option value="App and Cookware">Both</option>
                 </select>
-                <button type="submit">Submit</button>
+            </form>
+            <form action="#">
+                <label for="email" style="font-size: min(2.2vh, 2.2vw);">Email:</label>
+                <input type="email" id="email" name="email" style="font-size: min(2.2vh, 2.2vw); width: 98%;" placeholder="Enter your email" required>
+                <button onclick="sendEmailTo()" style="font-size: min(2.2vh, 2.2vw);">Subscribe</button>
+                <label for="email" id="emailError" style="font-size: min(2.2vh, 2.2vw); color: red; margin-left: 2vw; visibility: hidden;">Error when sending email: invalid address</label>
             </form>
         </section>
     </main>
@@ -205,15 +194,31 @@
 
     <script type="text/javascript">
         function sendEmailTo() {
-            const messageParams = {
-                email: document.getElementById("email").value
+            const destEmail = document.getElementById("email").value
+            const pref = document.getElementById("interest").value
+            console.log(pref)
+
+            if((destEmail.endsWith(".com") || destEmail.endsWith(".it")) && destEmail.includes("@")) {
+
+                const messageParams = {
+                    email: destEmail,
+                    preference: pref
+                }
+
+                emailjs.send('service_tj39f9r', 'template_ktg3pcd', messageParams)
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        document.getElementById("emailError").style.visibility = "hidden"
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            } else {
+                mailError();
             }
-            emailjs.send('service_tj39f9r', 'template_ktg3pcd', messageParams)
-            .then(function (response) {
-            console.log('SUCCESS!', response.status, response.text);
-            }, function (error) {
-            console.log('FAILED...', error);
-            });
+        }
+
+        function mailError() {
+            document.getElementById("emailError").style.visibility = "visible"
         }
     </script>
 
