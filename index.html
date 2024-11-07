@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Cookware and App</title>
+    <title>Smart Stoves</title>
     <style>
         /* Embedded CSS */
         body {
@@ -69,6 +69,7 @@
 
         li {
             font-size: min(2.2vh, 2.2vw);
+            margin-bottom: 0.7vh;
         }
 
         .features-grid {
@@ -121,7 +122,7 @@
 </head>
 <body>
     <header>
-        <h1>Smart Cookware and App</h1>
+        <h1>Smart Stoves</h1>
         <p style="font-size: larger;">Revolutionizing the way you cook and plan meals.</p>
     </header>
     <nav>
@@ -143,10 +144,10 @@
                 <div>
                     <h3 style="text-align: center;">Smart Cookware</h3>
                     <ul>
-                        <li>Automated temperature control</li>
-                        <li>Multi-compartment cooking</li>
-                        <li>Self-cleaning</li>
-                        <li>Integrated sensors for precision</li>
+                        <li>No time for cooking a meal you would actually enjoy? Just put in the ingredients and the Smart Cookware will take care of the rest</li>
+                        <li>An AI works together with a set of integrated sensors to ensure your meals are prepared perfectly</li>
+                        <li>The detachable structure of the Smart Cookware makes it really easy to clean</li>
+                        <li>Together with the app: suggests new reipes, takes care of your meal planning and tracks your diet</li>
                     </ul>
                 </div>
                 <div>
@@ -154,7 +155,7 @@
                     <ul>
                         <li>Fight waste and lack of ideas! Based on the ingredients you have at home, the app can suggest you recipes that only need those ingredients or few more</li>
                         <li>You struggle to think about what to cook for a whole week in advance? The app offers a weekly meals planner, also integrated with a sopping list</li>
-                        <li>The app allows you to keep track of what you eat and achieve a more balanced diet</li>
+                        <li>The app allows you to keep track of what you eat and achieve a more balanced diet. You can even personalize like by only having gluten-free or vegan meals</li>
                         <li>Even if you aren't a pro in the kitchen, the app's interactive step-by-step cooking assistance will guide you during the meal preparation</li>
                     </ul>
                 </div>
@@ -170,7 +171,7 @@
             <form action="#">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
+                <button onclick="sendEmailTo()">Subscribe</button>
             </form>
         </section>
         <section id="feedback">
@@ -190,5 +191,31 @@
     <footer>
         <p>&copy; 2024 Smart Cookware Inc. All rights reserved.</p>
     </footer>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "7s1E8hAoPu5IP4xZW",
+        });
+    })();
+    </script>
+
+    <script type="text/javascript">
+        function sendEmailTo() {
+            const messageParams = {
+                email: document.getElementById("email").value
+            }
+            emailjs.send('service_tj39f9r', 'template_ktg3pcd', messageParams)
+            .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+            console.log('FAILED...', error);
+            });
+        }
+    </script>
+
 </body>
 </html>
