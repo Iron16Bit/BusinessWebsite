@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cookware and App</title>
+    <style>
+        /* Embedded CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: url('./images/header_bg.png');
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: larger;
+            text-shadow: 0 0 8px black;
+        }
+
+        nav {
+            background: #2E8B57; /* Blue-Green */
+            color: #fff;
+            padding: 0.5rem 0;
+            text-align: center;
+            font-size: larger;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        section {
+            margin: 2rem 0;
+        }
+
+        h2 {
+            color: #2E8B57; /* Blue-Green */
+            font-size: xx-large;
+        }
+
+        h3 {
+            font-size: min(2.8vh, 2.8vw);
+        }
+
+        p {
+            font-size: min(2.2vh, 2.2vw);
+        }
+
+        li {
+            font-size: min(2.2vh, 2.2vw);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+
+        .features-grid div {
+            background: #f0f8e8; /* Light yellow-green background */
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background: #9ACD32; /* Yellow-Green */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #7CAF1C; /* Darker Yellow-Green */
+        }
+
+        footer {
+            background: #2E8B57; /* Blue-Green */
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Cookware and App</h1>
+        <p style="font-size: larger;">Revolutionizing the way you cook and plan meals.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="features">
+            <h2>What is "Smart Stoves"?</h2>
+            <p>Smart stoves is a project made up of two products: </h3>
+            <li style="margin-left: 2vw;">Smart Cookware</li>
+            <li style="margin-left: 2vw;">Mobile App</li>
+            <p>The aim of these products is to provide cooking solutions to students and workers who don't have enough time to spend cooking or simply don't enjoy it.</h3>
+            <div class="features-grid">
+                <div>
+                    <h3 style="text-align: center;">Smart Cookware</h3>
+                    <ul>
+                        <li>Automated temperature control</li>
+                        <li>Multi-compartment cooking</li>
+                        <li>Self-cleaning</li>
+                        <li>Integrated sensors for precision</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="text-align: center;">App</h3>
+                    <ul>
+                        <li>Fight waste and lack of ideas! Based on the ingredients you have at home, the app can suggest you recipes that only need those ingredients or few more</li>
+                        <li>You struggle to think about what to cook for a whole week in advance? The app offers a weekly meals planner, also integrated with a sopping list</li>
+                        <li>The app allows you to keep track of what you eat and achieve a more balanced diet</li>
+                        <li>Even if you aren't a pro in the kitchen, the app's interactive step-by-step cooking assistance will guide you during the meal preparation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <p>Connect the smart cookware to the app, schedule your meals, and let the system do the rest. The app guides you step-by-step to create delicious and balanced meals with ease.</p>
+            <img src="how-it-works.jpg" alt="Illustration of smart cookware and app interaction" style="width:100%;max-width:600px;">
+        </section>
+        <section id="subscribe">
+            <h2>Subscribe for Updates</h2>
+            <form action="#">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        <section id="feedback">
+            <h2>Share Your Thoughts</h2>
+            <form action="#">
+                <label for="favorite-feature">What feature excites you the most?</label>
+                <input type="text" id="favorite-feature" name="favorite-feature">
+                <label for="interest">Are you more interested in the cookware or the app?</label>
+                <select id="interest" name="interest">
+                    <option value="cookware">Cookware</option>
+                    <option value="app">App</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Smart Cookware Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>
