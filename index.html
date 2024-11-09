@@ -122,6 +122,52 @@
         div.center {
             text-align: center;
         }
+
+        /* Mobile-specific layout */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            header {
+                padding: 0.5rem 0;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            h2 {
+                font-size: large;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p, li, form label {
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr; /* Make the grid layout vertical */
+            }
+
+            .features-grid div {
+                margin: 0.5rem 0;
+            }
+
+            iframe {
+                width: 640px;
+                height: 360px;
+            }
+
+            form input, form select, form button {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -149,7 +195,7 @@
                         <li>No time for cooking a meal you would actually enjoy? Just put in the ingredients and the Smart Cookware will take care of the rest</li>
                         <li>An AI works together with a set of integrated sensors to ensure your meals are prepared perfectly</li>
                         <li>The detachable structure of the Smart Cookware makes it really easy to clean</li>
-                        <li>Together with the app: suggests new reipes, takes care of your meal planning and tracks your diet</li>
+                        <li>Together with the app: suggests new recipes, takes care of your meal planning and tracks your diet</li>
                     </ul>
                     <div class="center">
                         <iframe src="https://drive.google.com/file/d/17ZzyrndS-0Sh5bUioPggLIM9J5UxX1l3/preview" width="768" height="432" allow="autoplay"></iframe>
@@ -159,7 +205,7 @@
                     <h3 style="text-align: center;">App</h3>
                     <ul>
                         <li>Fight waste and lack of ideas! Based on the ingredients you have at home, the app can suggest you recipes that only need those ingredients or few more</li>
-                        <li>You struggle to think about what to cook for a whole week in advance? The app offers a weekly meals planner, also integrated with a sopping list</li>
+                        <li>You struggle to think about what to cook for a whole week in advance? The app offers a weekly meals planner, also integrated with a shopping list</li>
                         <li>The app allows you to keep track of what you eat and achieve a more balanced diet. You can even personalize like by only having gluten-free or vegan meals</li>
                         <li>Even if you aren't a pro in the kitchen, the app's interactive step-by-step cooking assistance will guide you during the meal preparation</li>
                     </ul>
