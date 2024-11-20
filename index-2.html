@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllergyScan</title>
+    <title>Smart Stoves</title>
     <style>
         /* Embedded CSS */
         body {
@@ -14,7 +14,7 @@
         }
 
         header {
-            background: url('./images/header_bg_2.png');
+            background: url('./images/header_bg.png');
             color: #fff;
             text-align: center;
             padding: 1rem 0;
@@ -124,7 +124,6 @@
             text-align: center;
         }
 
-        
 
         /* Mobile-specific layout */
         @media (max-width: 768px) {
@@ -181,8 +180,8 @@
 </head>
 <body>
     <header>
-        <h1>AllergyScan</h1>
-        <p style="font-size: larger;">Your pocket guide to safer choices</p>
+        <h1>Smart Stoves</h1>
+        <p style="font-size: larger;">An intuitive solution to help your allergies daily.</p>
     </header>
     <nav>
         <ul>
@@ -193,8 +192,8 @@
 
     <main>
         <section id="features">
-            <h2>What is AllergyScan?</h2>
-            <div class="standard-text">
+            <h2>What is "Smart Stoves"?</h2>
+            <div style="font-size: min(2.2vh, 2.2vw);">
                 <ul>
                 
                     <li>
@@ -210,19 +209,18 @@
                     </li>
                   
                 </ul>
-                <p>
+
                 We could have the perfect solution for you!   <br>
 
-                We are four students from the University of Trento and we are validating our idea of an application to help people with food intolerances or allergies in their everyday lives. <br> <br>
+                We are four students from the University of Trento and we are validating our idea of an application to help people with food intolerances or allergies in their everyday lives.
             
 
-                Take a look at our solution and leave a feedback if you would use it or not 😊
-                </p>
-            </div>
+             Take a look at our solution and leave a feedback if you would use it or not 😊
+            </p>
             <div class="features-grid">
                 <div id="app">
                     <h3 style="text-align: center;">App</h3>
-                    <p class="standard-text">
+                    <p style="font-size: min(2.2vh, 2.2vw);">
                         Our application makes food selection safe for people with allergies or dietary restrictions. <br>
                     
                         All you have to do is scan the barcode of a product and you will immediately know if it's safe for you.
@@ -236,9 +234,9 @@
                     </p>
 
                     <ul>
-                        <li>Easily scan product barcodes to identify allergens.</li>
-                        <li>Get an instant response on whether the product contains ingredients you should avoid.</li>
-                        <li>Discover alternative products with similar characteristics but free from your restricted ingredients.</li>
+                        <li>Quickly scan product barcodes to identify allergens</li>
+                        <li>Get an immediate response on whether the product contains ingredients you should avoid.</li>
+                        <li>Discover alternative products with similar characteristics but free from your restricted ingredients</li>
                         <li>Tailor the app to your unique dietary needs by selecting allergens or intolerances.</li>
                         <li>Discover our incredible meal planner to help you plan weekly meals in a balanced way.</li>
 
@@ -271,8 +269,8 @@
                 <input type="email" id="email" name="email" style="border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;" placeholder="Enter your email" required>
                 <br>
                 <button type="button" onclick="sendEmailTo()" style="background-color: #51f251; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em;">Subscribe</button>
-                <label for="email" id="emailError" style="color: red; display: none; margin-top: 10px; ">Error when sending email: invalid address</label>
-                <label for="email" id="emailOk" style="color: #51f251; display: none; margin-top: 10px; ">Thank you very much!</label>
+                <label for="email" id="emailError" style="color: red; display: block; margin-top: 10px; visibility: hidden;">Error when sending email: invalid address</label>
+                <label for="email" id="emailOk" style="color: 51f251; display: block; margin-top: 10px; visibility: hidden;">Email inviata correttamente!</label>
             </form>
         </section>
         
@@ -311,7 +309,7 @@
                 emailjs.send('service_tj39f9r', 'template_ktg3pcd', messageParams)
                     .then(function (response) {
                         console.log('SUCCESS!', response.status, response.text);
-                        document.getElementById("emailError").style.display = "none"
+                        document.getElementById("emailError").style.visibility = "hidden"
                         mailOk();
                     }, function (error) {
                         console.log('FAILED...', error);
@@ -322,12 +320,12 @@
         }
 
         function mailError() {
-            document.getElementById("emailError").style.display = "block"
+            document.getElementById("emailError").style.visibility = "visible"
         }
 
         
         function mailOk() {
-            document.getElementById("emailOk").style.display = "block"
+            document.getElementById("emailOk").style.visibility = "visible"
         }
     </script>
 
