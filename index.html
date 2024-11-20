@@ -74,7 +74,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-left: 2%;
             margin-right: 2%;
@@ -95,7 +95,6 @@
 
         form input, form select, form button {
             font-size: min(2.2vh, 2.2vw);
-            width: 100%;
             padding: 0.5rem;
             margin: 0.5rem 0;
             border: 1px solid #ccc;
@@ -124,6 +123,7 @@
         div.center {
             text-align: center;
         }
+
 
         /* Mobile-specific layout */
         @media (max-width: 768px) {
@@ -181,7 +181,7 @@
 <body>
     <header>
         <h1>Smart Stoves</h1>
-        <p style="font-size: larger;">Revolutionizing the way you cook and plan meals.</p>
+        <p style="font-size: larger;">An intuitive solution to help your allergies daily.</p>
     </header>
     <nav>
         <ul>
@@ -189,55 +189,102 @@
             <li><a href="#subscribe">Subscribe</a></li>
         </ul>
     </nav>
+
     <main>
         <section id="features">
             <h2>What is "Smart Stoves"?</h2>
-            <p>Smart stoves is a project made up of two products: </h3>
-            <li style="margin-left: 2vw;">Smart Cookware</li>
-            <li style="margin-left: 2vw;">Mobile App</li>
-            <p>The aim of these products is to provide cooking solutions to students and workers who don't have enough time to spend cooking or simply don't enjoy it.</h3>
+            <div style="font-size: min(2.2vh, 2.2vw);">
+                <ul>
+                
+                    <li>
+                        <em>Struggling to decipher ingredient lists?</em> 
+                    </li>
+
+                    <li>
+                        <em>Not sure about some hidden ingredient in the product you are about to buy?</em> 
+                    </li>
+
+                    <li>
+                        <em>Do you spend too much time reading labels while shopping?</em>  
+                    </li>
+                  
+                </ul>
+
+                We could have the perfect solution for you!   <br>
+
+                We are four students from the University of Trento and we are validating our idea of an application to help people with food intolerances or allergies in their everyday lives.
+            
+
+             Take a look at our solution and leave a feedback if you would use it or not 😊
+            </p>
             <div class="features-grid">
-                <div id="cookware">
-                    <h3 style="text-align: center;">Smart Cookware</h3>
-                    <ul>
-                        <li>No time for cooking a meal you would actually enjoy? Just put in the ingredients and the Smart Cookware will take care of the rest</li>
-                        <li>An AI works together with a set of integrated sensors to ensure your meals are prepared perfectly</li>
-                        <li>The detachable structure of the Smart Cookware makes it really easy to clean</li>
-                        <li>Together with the app: suggests new recipes, takes care of your meal planning and tracks your diet</li>
-                    </ul>
-                </div>
                 <div id="app">
                     <h3 style="text-align: center;">App</h3>
+                    <p style="font-size: min(2.2vh, 2.2vw);">
+                        Our application makes food selection safe for people with allergies or dietary restrictions. <br>
+                    
+                        All you have to do is scan the barcode of a product and you will immediately know if it's safe for you.
+                        If it's not, you will get personalized suggestions for allergy-friendly products with similar characteristics.
+
+                        <br>    <br>
+
+
+                        <b>Our main features are:</b>
+    
+                    </p>
+
                     <ul>
-                        <li>Fight waste and lack of ideas! Based on the ingredients you have at home, the app can suggest you recipes that only need those ingredients or few more</li>
-                        <li>You struggle to think about what to cook for a whole week in advance? The app offers a weekly meals planner, also integrated with a shopping list</li>
-                        <li>The app allows you to keep track of what you eat and achieve a more balanced diet. You can even personalize like by only having gluten-free or vegan meals</li>
-                        <li>Even if you aren't a pro in the kitchen, the app's interactive step-by-step cooking assistance will guide you during the meal preparation</li>
+                        <li>Quickly scan product barcodes to identify allergens</li>
+                        <li>Get an immediate response on whether the product contains ingredients you should avoid.</li>
+                        <li>Discover alternative products with similar characteristics but free from your restricted ingredients</li>
+                        <li>Tailor the app to your unique dietary needs by selecting allergens or intolerances.</li>
+                        <li>Discover our incredible meal planner to help you plan weekly meals in a balanced way.</li>
+
                     </ul>
                 </div>
             </div>
         </section>
-        <section id="subscribe">
-            <h2>Subscribe for Updates</h2>
-            <form action="#">
-                <label for="interest">What product are you more interested in?</label>
-                <select id="interest" name="interest">
-                    <option value="Cookware">Cookware</option>
-                    <option value="App">App</option>
-                    <option value="App and Cookware">Both</option>
-                </select>
+    
+        <section id="subscribe" style="margin: 20px auto; font-family: Arial, sans-serif;">
+            <h2 style="text-align: center; color: #2E8B57;">Subscribe for Updates</h2>
+        
+            <!-- Radio Button Question -->
+            <form action="#" id="interestForm" style="margin-bottom: 20px;">
+                <label for="interested" style="font-size: 1.1em; display: block; margin-bottom: 10px;">Are you interested in our solution?</label>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div>
+                        <input type="radio" id="yes" name="interested" value="yes" onclick="toggleForm(true)">
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="interested" value="no" onclick="toggleForm(false)">
+                        <label for="no">No</label>
+                    </div>
+                </div>
             </form>
-            <form action="#">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" style="width: 98%;" placeholder="Enter your email" required>
-                <button onclick="sendEmailTo()">Subscribe</button>
-                <label for="email" id="emailError" style="color: red; margin-left: 2vw; visibility: hidden;">Error when sending email: invalid address</label>
+        
+            <!-- Subscription Form -->
+            <form action="#" id="subscribeForm" style="display: none; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; ">
+                <label for="email" style="font-size: 1.1em; display: block; margin-bottom: 10px;">Email:</label>
+                <input type="email" id="email" name="email" style="border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;" placeholder="Enter your email" required>
+                <br>
+                <button type="button" onclick="sendEmailTo()" style="background-color: #51f251; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em;">Subscribe</button>
+                <label for="email" id="emailError" style="color: red; display: block; margin-top: 10px; visibility: hidden;">Error when sending email: invalid address</label>
+                <label for="email" id="emailOk" style="color: 51f251; display: block; margin-top: 10px; visibility: hidden;">Email inviata correttamente!</label>
             </form>
         </section>
+        
     </main>
     <footer>
         <p>&copy; 2024 Smart Cookware Inc. All rights reserved.</p>
     </footer>
+    
+    <script type="text/javascript">
+        function toggleForm(show) {
+            const subscribeForm = document.getElementById("subscribeForm");
+            subscribeForm.style.display = show ? "block" : "none";
+        }
+    </script>
 
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
@@ -249,24 +296,21 @@
         });
     })();
     </script>
-
     <script type="text/javascript">
         function sendEmailTo() {
             const destEmail = document.getElementById("email").value
-            const pref = document.getElementById("interest").value
-            console.log(pref)
 
             if((destEmail.endsWith(".com") || destEmail.endsWith(".it")) && destEmail.includes("@")) {
 
                 const messageParams = {
                     email: destEmail,
-                    preference: pref
                 }
 
                 emailjs.send('service_tj39f9r', 'template_ktg3pcd', messageParams)
                     .then(function (response) {
                         console.log('SUCCESS!', response.status, response.text);
                         document.getElementById("emailError").style.visibility = "hidden"
+                        mailOk();
                     }, function (error) {
                         console.log('FAILED...', error);
                     });
@@ -277,6 +321,11 @@
 
         function mailError() {
             document.getElementById("emailError").style.visibility = "visible"
+        }
+
+        
+        function mailOk() {
+            document.getElementById("emailOk").style.visibility = "visible"
         }
     </script>
 
