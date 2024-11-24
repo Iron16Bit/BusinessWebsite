@@ -108,8 +108,15 @@
             cursor: pointer;
         }
 
-        form button:hover {
+        form button:enabled:hover {
             background: #7CAF1C; /* Darker Yellow-Green */
+        }
+        
+        button:disabled {
+            background-color: #e0e0e0;
+            border-color: #d6d6d6;
+            color: #a0a0a0;
+            cursor: not-allowed; /* Show a "not allowed" cursor*/
         }
 
         footer {
@@ -271,7 +278,8 @@
                 <label for="email" style="font-size: 1.1em; display: block; margin-bottom: 10px;">Email:</label>
                 <input type="email" id="email" name="email" style="border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;" placeholder="Enter your email" required>
                 <br>
-                <button type="button" onclick="sendEmailTo()" style="background-color: #51f251; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em;">Subscribe</button>
+                <button type="button" onclick="sendEmailTo(this)">Subscribe</button>
+                <!-- style="background-color: #51f251; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em;" --> 
                 <label for="email" id="emailError" style="color: red; display: none; margin-top: 10px; ">Error when sending email: invalid address</label>
                 <label for="email" id="emailOk" style="color: #51f251; display: none; margin-top: 10px; "><b>Thank you very much!</b></label>
             </form>
@@ -302,7 +310,8 @@
     })();
     </script>
     <script type="text/javascript">
-        function sendEmailTo() {
+        function sendEmailTo(me) {
+            me.disabled = true
             const destEmail = document.getElementById("email").value
 
             if((destEmail.endsWith(".com") || destEmail.endsWith(".it") || destEmail.endsWith(".org")) && destEmail.includes("@")) {
@@ -316,11 +325,14 @@
                         console.log('SUCCESS!', response.status, response.text);
                         document.getElementById("emailError").style.display = "none"
                         mailOk();
+                        me.disabled = false
                     }, function (error) {
                         console.log('FAILED...', error);
+                        me.disabled = false
                     });
             } else {
                 mailError();
+                me.disabled = false
             }
         }
 
